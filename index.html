@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dreamss — Significado dos sonhos com IA</title>
+<meta name="description" content="Descubra o significado do seu sonho em menos de 1 minuto com interpretação por inteligência artificial. Grátis e sem cadastro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #11152B;
+    --night-soft: #1A1F3D;
+    --line: #333961;
+    --cream: #F2EFE9;
+    --cream-dim: #B9B7CC;
+    --lavender: #ABA5DE;
+    --gold: #D9B96C;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--night);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 500; letter-spacing: -0.01em; }
+
+  a { color: inherit; }
+
+  .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  /* ---------- layout shell ---------- */
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  header.site {
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .logo { font-family: 'Fraunces', serif; font-size: 1.15rem; }
+  .logo span { color: var(--gold); }
+
+  /* ---------- hero with starfield ---------- */
+  .hero {
+    position: relative;
+    padding: 56px 24px 64px;
+    text-align: left;
+    overflow: hidden;
+  }
+
+  .stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.9;
+  }
+
+  .stars span {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--cream);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .stars span { animation: twinkle 4s ease-in-out infinite; }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.85; }
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 640px; }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 6vw, 3rem);
+    line-height: 1.12;
+    margin: 18px 0 20px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero p.lede {
+    color: var(--cream-dim);
+    font-size: 1.05rem;
+    max-width: 46ch;
+    margin-bottom: 34px;
+  }
+
+  /* ---------- fake dream-input ---------- */
+  .dream-box {
+    background: var(--night-soft);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
+    max-width: 480px;
+  }
+
+  .dream-box textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.98rem;
+    resize: none;
+    min-height: 64px;
+  }
+
+  .dream-box textarea::placeholder { color: #6C7098; }
+  .dream-box textarea:focus { outline: none; }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--night);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 22px;
+    text-decoration: none;
+    margin-top: 12px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px -8px rgba(217, 185, 108, 0.5); }
+
+  .cta-row { display: flex; justify-content: flex-end; }
+
+  /* ---------- glossary / constellation grid ---------- */
+  section.glossary { padding: 60px 24px 20px; }
+
+  section.glossary .label { display: block; margin-bottom: 10px; }
+
+  section.glossary h2 { font-size: 1.6rem; margin-bottom: 8px; }
+
+  section.glossary > .wrap > p { color: var(--cream-dim); margin-bottom: 32px; max-width: 52ch; padding: 0; }
+
+  .symbol-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 560px) {
+    .symbol-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .symbol {
+    background: var(--night-soft);
+    padding: 22px 18px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .symbol .glyph { font-size: 1.5rem; display: block; margin-bottom: 10px; }
+  .symbol .name { font-family: 'Fraunces', serif; font-size: 1.02rem; color: var(--cream); display: block; margin-bottom: 4px; }
+  .symbol .hint { font-size: 0.82rem; color: var(--cream-dim); }
+
+  /* ---------- how it works ---------- */
+  section.how { padding: 64px 24px; }
+
+  .steps {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+
+  .step .n {
+    font-family: 'Space Mono', monospace;
+    color: var(--gold);
+    font-size: 0.85rem;
+    padding-top: 3px;
+    flex-shrink: 0;
+    width: 22px;
+  }
+
+  .step p { color: var(--cream-dim); font-size: 0.96rem; }
+  .step strong { color: var(--cream); font-weight: 600; }
+
+  /* ---------- final cta ---------- */
+  section.final {
+    padding: 70px 24px 90px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    margin-top: 40px;
+  }
+
+  section.final h2 { font-size: 1.8rem; margin-bottom: 14px; }
+  section.final p { color: var(--cream-dim); margin-bottom: 28px; }
+  section.final .cta-row { justify-content: center; }
+
+  footer {
+    padding: 28px 24px 40px;
+    text-align: center;
+    color: #5C6089;
+    font-size: 0.82rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="logo">Dreamss<span>.</span></div>
+  <span class="label">Beta</span>
+</header>
+
+<section class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="wrap hero-content">
+    <span class="label">Interpretação por IA</span>
+    <h1>Todo sonho é uma pergunta que sua mente ainda não soube fazer <em>em voz alta.</em></h1>
+    <p class="lede">Descreva o que você sonhou — mesmo que só lembre de pedaços soltos — e receba uma leitura personalizada em menos de um minuto. Sem cadastro, sem custo.</p>
+
+    <div class="dream-box">
+      <textarea placeholder="Ex: sonhei que estava voando sobre uma cidade que eu não reconhecia..." aria-label="Descreva seu sonho"></textarea>
+      <div class="cta-row">
+        <a class="cta" href="https://ai-dream-interpreter.lovable.app/">Interpretar meu sonho →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="glossary">
+  <div class="wrap">
+    <span class="label">Glossário</span>
+    <h2>Alguns dos sonhos mais buscados</h2>
+    <p>Certos símbolos aparecem com uma frequência que chama atenção. Aqui vão alguns pontos de partida — a leitura completa considera o contexto do seu sonho inteiro.</p>
+
+    <div class="symbol-grid">
+      <a class="symbol" href="https://ai-dream-interpreter.lovable.app/">
+        <span class="glyph">🐍</span>
+        <span class="name">Cobra</span>
+        <span class="hint">transformação ou ameaça oculta</span>
+      </a>
+      <a class="symbol" href="https://ai-dream-interpreter.lovable.app/">
+        <span class="glyph">🦷</span>
+        <span class="name">Dentes caindo</span>
+        <span class="hint">perda de controle ou insegurança</span>
+      </a>
+      <a class="symbol" href="https://ai-dream-interpreter.lovable.app/">
+        <span class="glyph">🕊️</span>
+        <span class="name">Voar</span>
+        <span class="hint">liberdade ou desejo de escapar</span>
+      </a>
+      <a class="symbol" href="https://ai-dream-interpreter.lovable.app/">
+        <span class="glyph">🌊</span>
+        <span class="name">Água</span>
+        <span class="hint">emoções represadas ou em fluxo</span>
+      </a>
+      <a class="symbol" href="https://ai-dream-interpreter.lovable.app/">
+        <span class="glyph">🕳️</span>
+        <span class="name">Cair</span>
+        <span class="hint">medo de perder o equilíbrio na vida</span>
+      </a>
+      <a class="symbol" href="https://ai-dream-interpreter.lovable.app/">
+        <span class="glyph">🏃</span>
+        <span class="name">Ser perseguido</span>
+        <span class="hint">algo que você está evitando enfrentar</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <span class="label">Como funciona</span>
+    <h2>Três passos, um minuto</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="n">01</span>
+        <p><strong>Escreva o sonho</strong> do jeito que lembrar — completo ou em fragmentos, tanto faz.</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <p><strong>A IA analisa</strong> os símbolos, o cenário e as emoções presentes no relato.</p>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <p><strong>Você recebe</strong> uma interpretação personalizada, não uma resposta genérica de dicionário.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Curioso pra saber o que seu sonho quis dizer?</h2>
+    <p>Leva menos tempo do que você gastou rolando até aqui.</p>
+    <div class="cta-row">
+      <a class="cta" href="https://ai-dream-interpreter.lovable.app/">Interpretar meu sonho agora →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Dreamss — interpretação de sonhos com inteligência artificial.
+</footer>
+
+<script>
+  // gera um pequeno céu estrelado no hero, respeitando prefers-reduced-motion via CSS
+  const starField = document.getElementById('stars');
+  const total = 40;
+  for (let i = 0; i < total; i++) {
+    const s = document.createElement('span');
+    s.style.top = Math.random() * 100 + '%';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.animationDelay = (Math.random() * 4) + 's';
+    starField.appendChild(s);
+  }
+</script>
+
+</body>
+        </html>
